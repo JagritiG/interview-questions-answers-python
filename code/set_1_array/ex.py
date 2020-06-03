@@ -22,9 +22,9 @@
 # print(set(a) & set(b))
 
 # s1 = [-1, 0, 1]
-list2 = [0, 1, -1]
-for x in range(len(list2), -1, -1):
-    print(x)
+# list2 = [0, 1, -1]
+# for x in range(len(list2), -1, -1):
+#     print(x)
 
 #
 # print(set(list1).difference(set(list2))) # returns {1, 2}
@@ -40,3 +40,5 @@ for x in range(len(list2), -1, -1):
 # for e in sorted(lst):
 #     print(e)
 
+a = 5 % 4
+print(a)

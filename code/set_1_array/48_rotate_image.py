@@ -22,8 +22,8 @@
 # Example 2:
 # Given input matrix =
 # [
-#   [ 5, 1, 9,11],
-#   [ 2, 4, 8,10],
+#   [5, 1, 9,11],
+#   [2, 4, 8,10],
 #   [13, 3, 6, 7],
 #   [15,14,12,16]
 # ],
@@ -35,3 +35,27 @@
 #   [16, 7,10,11]
 # ]
 # ==============================================================================
+
+
+def rotate_image(matrix):
+
+    # Step-1: Transpose the matrix
+
+    # Step-2: Flip horizontally
+    # swap(array[i][j], array[i][length(matrix)-1-j])
+
+    return matrix
+
+
+if __name__ == "__main__":
+
+    A = [[1, 2, 3],
+         [4, 5, 6],
+         [7, 8, 9]]
+
+    # A = [[5, 1, 9, 11],
+    #      [2, 4, 8, 10],
+    #      [13, 3, 6, 7],
+    #      [15, 14, 12, 16]]
+    print(rotate_image(A))
+
