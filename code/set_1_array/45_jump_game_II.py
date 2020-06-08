@@ -51,7 +51,7 @@ def jump_2(nums):
         return 0
 
     # Greedy strategy: extend coverage as long as possible with lazy jump
-    for i in range( 0, size):
+    for i in range(0, size):
 
         # extend current coverage as further as possible
         cur_coverage = max( cur_coverage, i + nums[i] )
@@ -107,7 +107,7 @@ def jump_4(nums):
     k = 1
     maximum = 1
 
-    for i in range(1,size,1):
+    for i in range(1, size, 1):
         if i <= count:
             maximum = max(maximum,nums[i] + i)
         else:

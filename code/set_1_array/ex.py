@@ -64,5 +64,27 @@
 #     print(r)
 
 
-a = 5//2 + 1
-print(a)
+# a = 5//2 + 1
+# print(a)
+
+# Creates a list containing 5 lists, each of 8 items, all set to 0
+# n = 3
+# matrix = [[0 for x in range(n)] for y in range(n)]
+# print(matrix)
+
+# create matrix
+import numpy as np
+
+# m = 3
+# n = 2
+
+# matrix = np.zeros((m, n), dtype=int)
+# matrix = [[0 for x in range(n)] for y in range(m)]
+# matrix = [[0] * n] * m
+# print(matrix)
+# ====================================
+
+# Max of a matrix
+matrix = [[1, 2, 4], [8, 9, 0]]
+print(max(map(max, matrix)))
+
