@@ -25,7 +25,7 @@
 
 
 # Method-1 (faster) ***
-def search(nums, target):
+def search_1(nums, target):
 
     if not nums:
         return -1
@@ -67,7 +67,7 @@ def search(nums, target):
 
 
 # Method-2
-def search_2(nums, target):
+def search(nums, target):
 
     if not nums:
         return -1
@@ -95,12 +95,16 @@ def search_2(nums, target):
 
 
 if __name__ == "__main__":
-    arr = [4, 5, 6, 7, 0, 1, 2]
-    t = 0
+    # arr = [4, 5, 6, 7, 0, 1, 2]
+    # t = 0
     # arr = [4, 5, 6, 7, 0, 1, 2]
     # t = 3
     # arr = [1, 3]
     # t = 3
+    # arr = [1, 3]
+    # t = 3
+    arr = [5, 1, 2, 3, 4]
+    t = 3
     # print(search_1(arr, t))
     print(search(arr, t))
 
