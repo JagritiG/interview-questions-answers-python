@@ -85,6 +85,18 @@ import numpy as np
 # ====================================
 
 # Max of a matrix
-matrix = [[1, 2, 4], [8, 9, 0]]
-print(max(map(max, matrix)))
+# matrix = [[1, 2, 4], [8, 9, 0]]
+# print(max(map(max, matrix)))
+
+
+# print 1-9
+# for i in range(1, 10):
+#     print(i)
+
+
+# reverse range
+a = [1, 2, 3, 4, 5]
+for i in range(len(a) - 1, 0, -1):
+    print(i, a[i])
+
 

@@ -28,7 +28,7 @@
 
 
 # method-1
-def combination_sum_II(candidates, target):
+def combination_sum2(candidates, target):
 
     combinations = []
     candidates.sort()
@@ -55,5 +55,5 @@ if __name__ == "__main__":
     target = 8
     # arr = [2, 5, 2, 1, 2]
     # target = 5
-    print(combination_sum_II(arr, target))
+    print(combination_sum2(arr, target))
 
