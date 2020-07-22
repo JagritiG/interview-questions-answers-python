@@ -1,6 +1,5 @@
 # Insertion Sort List
 # Sort a linked list using insertion sort.
-
 # Algorithm of Insertion Sort:
 # Insertion sort iterates, consuming one input element each repetition, and growing a sorted output list.
 # At each iteration, insertion sort removes one element from the input data,
@@ -18,7 +17,7 @@
 # Algorithm:
 # TC: O(n^2)
 # SC:
-# Description:
+# Description: https://www.youtube.com/watch?v=vyeHALAClic
 # ========================================================================================
 
 
@@ -61,7 +60,7 @@ def insertion_sort_list_1(head):
 
 
 # Method-2
-def insertion_sort_list(head):
+def insertion_sort_list_2(head):
 
     # Input: 4->2->1->3
     # Output: 1->2->3->4
@@ -94,8 +93,64 @@ def print_list(llist):
         curr = curr.next
 
 
+# Method-3
+def insertion_sort_list_3(head):
+
+    if not head or not head.next:
+        return head
+
+    def insert_node(head, node):
+
+        if not head:
+            head = node
+
+        elif head.val >= node.val:
+            node.next = head
+            head = node
+
+        else:
+            curr = head
+            while curr.next and curr.next.val < node.val:
+                curr = curr.next
+            node.next = curr.next
+            curr.next = node
+
+    def insertion_sort(head):
+        dummy = SllNode(0)
+        # temp = None
+        curr = head
+        while curr:
+            nxt = curr.next
+            insert_node(dummy, curr)
+            curr = nxt
+        head = dummy.next
+
+    insertion_sort(head)
+    print_list(head)
+    return head
+
+
+# Method-4 ****
+def insertion_sort_list(head):
+
+    # Input: 4->2->1->3->
+    # dummy: 0 ->1->2->3->4 -> Null
+    # Output: 1->2->3->4
+    d = dummy = SllNode(0)
+    curr = head
+    while curr:
+        if d and d.val > curr.val:    # reset pointer only when new number is smaller than pointer value
+            d = dummy
+        while d.next and d.next.val < curr.val:    # classic insertion sort to find position
+            d = d.next
+        d.next, d.next.next, curr = curr, d.next, curr.next    # insert
+
+    print_list(dummy.next)
+    return dummy.next
+
+
 # Insertion sort
-def insertion_sort(nums):
+def insertion_sort_(nums):
     for index in range(1, len(nums)):
         value = nums[index]
         i = index - 1
@@ -119,5 +174,5 @@ if __name__ == "__main__":
     # Test insertion sort with a list
     # a = [2, 5, 3, 8]
     # print(a)
-    # insertion_sort(a)
+    # insertion_sort_(a)
     # print(a)
