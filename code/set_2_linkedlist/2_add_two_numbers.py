@@ -27,6 +27,12 @@ class SllNode:
 # method-1
 def add_two_numbers(l1, l2):
 
+    # Input: (2 -> 4 -> 3)  + (5 -> 6 -> 4)
+    # Input: (3  4  2)
+    #      + (4  6  5)
+    # -----------------
+    #         8  0  7
+    # Output: 7 -> 0 -> 8
     res = SllNode()
     curr = res
     carry = 0
