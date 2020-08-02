@@ -49,6 +49,7 @@ def is_balanced(root):
     def is_mirror(leftchild, rightchild):
 
         if leftchild and rightchild:
+            print(leftchild.val, rightchild.val)
 
             return leftchild.val == rightchild.val and \
                 is_mirror(leftchild.left, rightchild.right) and \
@@ -62,7 +63,7 @@ def is_balanced(root):
 if __name__ == "__main__":
 
     # Tree
-    root = [1, 2, 2, 3, 4, 4, 3]
+    # root = [1, 2, 2, 3, 4, 4, 3]
     #      1
     #     /  \
     #    2    2
@@ -83,10 +84,20 @@ if __name__ == "__main__":
     root.right = TreeNode(2)
 
     # L-3
-    root.left.left = None
-    root.left.right = TreeNode(3)
-    root.right.left = None
+    root.left.left = TreeNode(3)
+    root.left.right = TreeNode(4)
+    root.right.left = TreeNode(4)
     root.right.right = TreeNode(3)
+
+    # L-4
+    root.left.left.left = TreeNode(5)
+    root.left.left.right = TreeNode(6)
+    root.left.right.left = TreeNode(3)
+    root.left.right.right = TreeNode(2)
+    root.right.left.left = TreeNode(2)
+    root.right.left.right = TreeNode(3)
+    root.right.right.left = TreeNode(6)
+    root.right.right.right = TreeNode(5)
 
     # print(root)
     print(is_balanced(root))

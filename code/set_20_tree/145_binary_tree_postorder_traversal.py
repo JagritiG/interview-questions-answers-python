@@ -1,6 +1,6 @@
-# Binary Tree Inorder Traversal
-# Given a binary tree, return the inorder traversal of its nodes' values.
-#
+# Binary Tree Postorder Traversal
+# Given a binary tree, return the postorder traversal of its nodes' values.
+
 # Example:
 #
 # Input: [1,null,2,3]
@@ -10,7 +10,7 @@
 #     /
 #    3
 #
-# Output: [1,3,2]
+# Output: [3,2,1]
 # Follow up: Recursive solution is trivial, could you do it iteratively?
 # ======================================================================================
 # Algorithm:
@@ -35,44 +35,62 @@ class TreeNode:
 
 
 # Method-1: iterative
-def inorder_traversal_iter(root):
+def postorder_traversal_iter(root):
 
     if not root:
         return None
 
-    res = []
+    curr = root
+    result = []
     stack = []
-    while True:
-        if root:
-            stack.append(root)
-            root = root.left
+    while curr or stack:
+        if curr:
+            stack.append(curr)
+            curr = curr.left
 
         else:
-            if stack:
-                root = stack.pop()
-                res.append(root.val)
-                root = root.right
-            else:
-                break
+            temp = stack[-1].right
+            if not temp:
+                if stack:
+                    temp = stack.pop()
+                else:
+                    temp = None
+                result.append(temp.val)
 
-    return res
+                while stack and temp == stack[-1].right:
+                    temp = stack.pop()
+                    result.append(temp.val)
+
+            else:
+                curr = temp
+
+    return result
 
 
 # Method-2: recursive
-def inorder_traversal_recur(root):
-    """Left->Root->Right"""
+def postorder_traversal_recur(root):
+    """Left->Right->Root"""
 
-    if root:
+    if not root:
+        return []
 
-        # first perform recursion on left child
-        inorder_traversal_recur(root.left)
+    res = []
 
-        # Then get the data of the node
-        print(str(root.val) + " ")
+    def dfs(root):
+        if root:
 
-        # Then perform recursion on right child
-        inorder_traversal_recur(root.right)
+            # first perform recursion on left child
+            dfs(root.left)
 
+            # Then perform recursion on right child
+            dfs(root.right)
+
+            # Then get the data of the node
+            # print(str(root.val) + " ")
+            res.append(root.val)
+
+    dfs(root)
+    return res
 
 # # Method-3: Morris inorder traversal
 # https://www.youtube.com/watch?v=wGXB9OWhPTg
@@ -110,6 +128,5 @@ if __name__ == "__main__":
     # root.right.right.right.right = TreeNode(3)
 
     # print(root)
-    # print(inorder_traversal_iter(root))
-    inorder_traversal_recur(root)
-
+    print(postorder_traversal_iter(root))
+    print(postorder_traversal_recur(root))
